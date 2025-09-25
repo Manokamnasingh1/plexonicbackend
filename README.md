@@ -2,7 +2,6 @@
 
 This repository contains the backend for the Mini Webpage Builder, built using Node.js, Express, MongoDB, and Socket.IO.
 It provides APIs to save, fetch, and manage webpage schemas, user authentication, and supports real-time collaborative editing.
-
 🎯 Problem Statement
 
 The backend provides the necessary infrastructure for:
