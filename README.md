@@ -1,103 +1,99 @@
-## 🛠️ Mini Webpage Builder - Backend
+# 🛠️ Mini Webpage Builder
 
-This repository contains the backend for the Mini Webpage Builder, built using Node.js, Express, MongoDB, and Socket.IO.
-It provides APIs to save, fetch, and manage webpage schemas, user authentication, and supports real-time collaborative editing.
-🎯 Problem Statement
+[![React](https://img.shields.io/badge/React-61DAFB?logo=react&logoColor=white)](https://reactjs.org/)
+[![Node.js](https://img.shields.io/badge/Node.js-339933?logo=node.js&logoColor=white)](https://nodejs.org/)
+[![MongoDB](https://img.shields.io/badge/MongoDB-47A248?logo=mongodb&logoColor=white)](https://www.mongodb.com/)
+[![Socket.IO](https://img.shields.io/badge/Socket.IO-010101?logo=socket.io&logoColor=white)](https://socket.io/)
 
-The backend provides the necessary infrastructure for:
+A **drag-and-drop webpage builder** with real-time collaboration, live preview, and JWT authentication.  
 
-Storing webpage layouts and schemas in MongoDB.
+---
 
-Managing user accounts with JWT-based authentication.
+## 📌 Table of Contents
+- [Project Overview](#project-overview)
+- [Objectives](#objectives)
+- [Features](#features)
+  - [Frontend Features](#frontend-features)
+  - [Backend Features](#backend-features)
+- [Tech Stack](#tech-stack)
+- [Project Structure](#project-structure)
+- [Installation & Setup](#installation--setup)
+  - [Frontend](#frontend)
+  - [Backend](#backend)
+- [Pages & API Overview](#pages--api-overview)
+- [Screenshots](#screenshots)
+- [Evaluation Criteria](#evaluation-criteria)
+- [Future Enhancements](#future-enhancements)
 
-Supporting real-time collaborative editing via Socket.IO.
+---
 
-Serving API endpoints for saving, fetching, updating, and publishing pages.
+## 🌟 Project Overview
 
-🔹 Objectives
+The **Mini Webpage Builder** allows users to:  
 
-Page Schema Storage:
+- 🎨 Drag & drop **Text, Image, Button, Container, Form, Divider, Card, and List blocks**  
+- ✏️ Customize block **styles, alignment, spacing, and content**  
+- 💾 Save pages in **MongoDB**  
+- 👀 Preview pages live  
+- 🤝 Collaborate in **real-time** using Socket.IO  
+- 🔐 Authenticate with **JWT**  
+- 🌐 Publish pages as **static HTML**  
 
-Save user-created pages (blocks, styles, layout) in MongoDB.
+---
 
-Support saving as draft or published pages.
+## 🎯 Objectives
 
-User Authentication:
+- 🖌️ Provide **visual page editing** for non-technical users  
+- 🤝 Enable **real-time collaborative editing**  
+- 🔐 Support **authentication & authorization**  
+- 📱 Maintain **responsive design** across devices  
 
-Signup and login with secure password hashing.
+---
 
-JWT-based authentication to protect API endpoints.
+## ✨ Features
 
-Real-time Collaboration:
+### Frontend Features
+<details>
+<summary>Click to expand</summary>
 
-Multiple users can edit the same page at the same time.
+- 🧩 **Sidebar Blocks:** Text, Image, Button, Container, Form, Divider, Card, List  
+- 🖼️ **Canvas Area:** Drag-and-drop, nested blocks, reorder/duplicate/delete  
+- ⚙️ **Block Settings Panel:** Customize fonts, colors, alignment, spacing, backgrounds  
+- 👁️ **Preview Panel:** Live preview in desktop/tablet/mobile modes  
+- ↩️ **Undo/Redo:** Action history  
+- 🔎 **Preview Mode:** `/preview/:pageId` route for read-only view  
+- 🔐 **Authentication:** Login & Signup with JWT  
+- 🌐 **Real-time Collaboration:** Socket.IO for multi-user editing  
 
-Changes are propagated instantly using Socket.IO.
+</details>
 
-API Endpoints:
+### Backend Features
+<details>
+<summary>Click to expand</summary>
 
-CRUD operations for pages.
+- 💾 **Page Schema Storage:** Draft & published pages in MongoDB  
+- 🔐 **User Authentication:** JWT-based login/signup  
+- 📄 **CRUD API Endpoints:** Create, read, update, delete pages  
+- ⚡ **Real-time Collaboration:** Socket.IO events (`joinPage`, `blockAdded`, `blockUpdated`, `blockDeleted`)  
+- ✅ **Secure APIs:** Authorization for protected routes  
 
-User authentication routes (login/signup).
+</details>
 
-Real-time updates via WebSocket events.
+---
 
-🔹 Tech Stack
+## 🛠️ Tech Stack
 
-Node.js – runtime environment
+| Layer       | Tech |
+|------------|-----------------------------------|
+| Frontend   | React, Vite, Context API, CSS/SCSS |
+| Backend    | Node.js, Express.js, MongoDB, Mongoose |
+| Real-time  | Socket.IO |
+| Auth       | JWT, bcrypt |
+| Utilities  | Axios, dotenv, cors |
 
-Express.js – backend framework
+---
 
-MongoDB – database for storing page schemas and users
+## 📂 Project Structure
 
-Mongoose – MongoDB object modeling
+### Frontend
 
-JWT – authentication
-
-Socket.IO – real-time collaboration
-
-bcrypt – password hashing
-
-cors – cross-origin resource sharing
-
-dotenv – environment variable management
-
-📂 Project Structure
-backend/
- ├── controllers/      # API controllers for pages & users
- ├── models/           # MongoDB models: User, Page
- ├── routes/           # Express routes: auth.js, pages.js
- ├── middleware/       # Middleware: auth verification
- ├── socket/           # Socket.IO handlers
- ├── utils/            # Helper functions
- ├── server.js         # Entry point, sets up Express & Socket.IO
- └── .env              # Environment variables
-
-⚙️ Installation & Setup
-
-Clone the repository:
-
-git clone <your-backend-repo-link>
-cd backend
-
-
-Install dependencies:
-
-npm install
-
-
-Create .env file with the following variables:
-
-PORT=5000
-MONGO_URI=<your-mongodb-connection-string>
-JWT_SECRET=<your-jwt-secret>
-
-
-Run the development server:
-
-npm run dev
-
-
-API will be available at:
-
-http://localhost:5000/
